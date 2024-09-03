@@ -21,7 +21,6 @@ app.get('/getInfo', async (req, res) => {
 
 
 
-
 // POST requests
 app.post('/info', async (req, res) => {
     console.log(req.body);

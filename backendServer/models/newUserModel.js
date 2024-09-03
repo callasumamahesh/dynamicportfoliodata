@@ -66,6 +66,14 @@ const projectSchema = new mongoose.Schema({
         type: String, 
     },
 });
+const CertificatesSchema = new mongoose.Schema({
+    certificateName: {
+        type: String,
+    },
+    certificateURL: {
+        type: String, 
+    },
+});
 
 const skillSchema = new mongoose.Schema({
     skillName: {
@@ -104,6 +112,9 @@ const newUserSchema = new mongoose.Schema({
     },
     skills: {
         type: [skillSchema], 
+    },
+    certificates:{
+        type: [CertificatesSchema]
     },
     footer: {
         type: [String], 

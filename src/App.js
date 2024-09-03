@@ -9,6 +9,7 @@ import ProjectDetails from "./Components/projectsPage";
 import Skills from "./Components/skillsPage";
 
 import "./App.css";
+import CertificatesPage from "./Components/certificatesPage";
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -27,6 +28,7 @@ function App() {
           }
         );
         const res = await data.json();
+        console.log(res)
         setUserInfo(res.data);
       } catch (error) {
         console.log(error);
@@ -35,7 +37,6 @@ function App() {
     fetchData();
   }, []);
   // console.log(userInfo.projects)
-  {console.log(userInfo.projects && userInfo.projects)}
 
   return (
     <div>
@@ -111,6 +112,18 @@ function App() {
           </li>
           <li style={{ display: "inline" }}>
             <Link
+              to="/certificates"
+              style={{
+                textDecoration: "none",
+                color: "#007bff",
+                fontSize: "16px",
+              }}
+            >
+              Certificates
+            </Link>
+          </li>
+          <li style={{ display: "inline" }}>
+            <Link
               to="/skills"
               style={{
                 textDecoration: "none",
@@ -136,6 +149,7 @@ function App() {
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/projects" element={<ProjectDetails />} />
         <Route path="/skills" element={<Skills />} />
+        <Route path="/certificates" element={<CertificatesPage/>}></Route>
       </Routes>
     </div>
   );
